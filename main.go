@@ -5,11 +5,13 @@ import (
 	"log"
 	"os"
 	"os/signal"
+	"queuebot/fakesite"
 )
 
 var token = "958848651:AAGMkNg7_tXzUNTRu4qt0LYuywQi1h5ntGs"
 
 func main() {
+	fakesite.Start(os.Getenv("PORT"))
 	bot, err := newQueueBot(token, "")
 	if err != nil {
 		log.Fatal("ERROR: ", err)
